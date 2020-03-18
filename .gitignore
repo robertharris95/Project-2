@@ -118,3 +118,5 @@ dist
 .vscode-test
 
 contractBay-WireFrame.bmpr
+
+test.js

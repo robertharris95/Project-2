@@ -22,9 +22,7 @@ app.set("view engine", "handlebars");
 require("./routes/html-routes")(app);
 require("./routes/api-routes")(app);
 
-// require("ROUTES")
-
-db.sequelize.sync({ force: true }).then(function() {
+db.sequelize.sync().then(function() {
     app.listen(PORT, () => {
         console.log(`Server listening on: http://localhost:${PORT}`);
     });
