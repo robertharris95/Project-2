@@ -11,25 +11,15 @@ module.exports = function(sequelize, Datatypes) {
             type: Datatypes.TEXT,
             allowNull: false,
             validate: {
-                len: [50]
+                len: [20]
             }
         },
         quantity: {
-            weekly: {
                 type: Datatypes.INTEGER,
-                allowNull: true
-            },
-            monthly: {
-                type: Datatypes.INTEGER,
-                allowNull: true
-            },
-            yearly: {
-                type: Datatypes.INTEGER,
-                allowNull: true
-            },
-            validate: {
+                allowNull: true,
+                validate: {
                 len: [1]
-            }
+                }
         },
         category: {
             type: Datatypes.STRING,

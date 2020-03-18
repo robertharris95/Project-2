@@ -1,5 +1,4 @@
 //input new products
-
 $(document).ready(function() {
 
         const productContainer = $(".product-container");
