@@ -15,11 +15,16 @@ module.exports = function(sequelize, Datatypes) {
             }
         },
         quantity: {
-                type: Datatypes.INTEGER,
-                allowNull: true,
-                validate: {
-                len: [1]
-                }
+            type: Datatypes.INTEGER,
+            allowNull: false
+        },
+        min_length: {
+            type: Datatypes.INTEGER,
+            allowNull: false
+        },
+        rate: {
+            type: Datatypes.DOUBLE,
+            allowNull: false
         },
         category: {
             type: Datatypes.STRING,

@@ -19,6 +19,9 @@ app.use(passport.session());
 app.engine("handlebars", exphbs({ defaultLayout: "main"}));
 app.set("view engine", "handlebars");
 
+require("./routes/html-routes")(app);
+require("./routes/api-routes")(app);
+
 // require("ROUTES")
 
 db.sequelize.sync({ force: true }).then(function() {
