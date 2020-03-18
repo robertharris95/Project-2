@@ -26,9 +26,18 @@ module.exports = function(sequelize, Datatypes) {
             yearly: {
                 type: Datatypes.INTEGER,
                 allowNull: true
+            },
+            validate: {
+                len: [1]
             }
         },
-        len: [1]
+        category: {
+            type: Datatypes.STRING,
+            allowNull: false,
+            validate: {
+                len: [1]
+            }
+        }
     });
 
     Product.associate = function(models) {
