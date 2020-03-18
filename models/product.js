@@ -11,7 +11,7 @@ module.exports = function(sequelize, Datatypes) {
             type: Datatypes.TEXT,
             allowNull: false,
             validate: {
-                len: [50]
+                len: [20]
             }
         },
         quantity: {
