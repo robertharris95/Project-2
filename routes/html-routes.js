@@ -25,8 +25,12 @@ module.exports = function(app) {
   // Here we've add our isAuthenticated middleware to this route.
   // If a user who is not logged in tries to access this route they will be redirected to the signup page
   app.get("/members", isAuthenticated, function(req, res) {
-    sequelize.findAll({}) //@@add get all products here.
-    res.render("index", { product: data });
+    console.log(req);
+    // sequelize.findAll({}) //@@add get all products here.
+    // filter product quantity null values out. splice()
+    
+
+    // res.render("index", { product: data });
   });
 
 };

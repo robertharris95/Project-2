@@ -31,6 +31,10 @@ module.exports = function(sequelize, Datatypes) {
                 len: [1]
             }
         },
+        rate: {
+            type: Datatypes.DOUBLE,
+            allowNull: false
+        },
         category: {
             type: Datatypes.STRING,
             allowNull: false,
