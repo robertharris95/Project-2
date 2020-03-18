@@ -1,0 +1,7 @@
+<div id="products" class="product-container">
+    <ul>  
+        {{#each product}}
+        <li>{{product.name}}, {{product.QTY}}, {{product.pricing}}, {{product.company}}, <a href="{{product.contract}}">View Contract</a></li>
+        {{/each}}
+    </ul>
+</div>
