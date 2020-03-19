@@ -1,13 +1,13 @@
 module.exports = function(sequelize, Datatypes) {
     const Product = sequelize.define("Product", {
-        name: {
+        product_name: {
             type: Datatypes.STRING,
             allowNull: false,
             validate: {
                 len: [1]
             }
         },
-        description: {
+        product_description: {
             type: Datatypes.TEXT,
             allowNull: false,
             validate: {
@@ -22,6 +22,10 @@ module.exports = function(sequelize, Datatypes) {
             type: Datatypes.INTEGER,
             allowNull: false
         },
+        min_lengthUnits: {
+            type: Datatypes.STRING,
+            allowNull: false
+        },
         rate: {
             type: Datatypes.DOUBLE,
             allowNull: false
@@ -32,6 +36,10 @@ module.exports = function(sequelize, Datatypes) {
             validate: {
                 len: [1]
             }
+        },
+        contract: {
+            type: Datatypes.STRING,
+            allowNull: true
         }
     });
 

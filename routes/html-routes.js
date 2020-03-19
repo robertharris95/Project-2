@@ -26,11 +26,9 @@ module.exports = function(app) {
   // If a user who is not logged in tries to access this route they will be redirected to the signup page
   app.get("/members", isAuthenticated, function(req, res) {
     console.log(req);
-    // sequelize.findAll({}) //@@add get all products here.
-    // filter product quantity null values out. splice()
-    
-
-    // res.render("index", { product: data });
+    Product.findAll({})   // @@ relate every product to its company foreign key pass company data in same order.
+    .then( (data) => {    
+      res.render("index", { product: data });
+    });
   });
-
 };

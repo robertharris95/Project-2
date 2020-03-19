@@ -15,6 +15,9 @@ module.exports = function(app) {
   // otherwise send back an error
   app.post("/api/signup", function(req, res) {
     console.log(req);
+
+    db.Company.create({ name: req.body.company });
+
     db.User.create({
       firstName: req.body.name,
       lastName: req.body.last,
@@ -22,7 +25,7 @@ module.exports = function(app) {
       password: req.body.password
     })
       .then(function() {
-        res.redirect(307, "/"); // Where to go after sign up
+        res.redirect(307, "/api/login");
       })
       .catch(function(err) {
         res.status(401).json(err);
@@ -48,5 +51,25 @@ module.exports = function(app) {
         id: req.user.id
       });
     }
+  });
+
+  // To insert new products from Seller.html @@todo Add products.js to main.handlebars 
+  app.get("api/products", (req, res) => {
+    console.log(req);
+
+    const { name, desc, quant, minLen, minLenUnits, rate, category, contract } = req.body;
+
+    //@@ todo relate every product created to a company. could use logged in user data.
+
+    db.Product.create({
+      product_name: name,
+      product_description: desc,
+      quantity: quant,
+      min_length: minLen,
+      min_lengthUnits: minLenUnits,
+      rate: rate,
+      category: category,
+      contract: contract
+    });
   });
 };
