@@ -17,6 +17,7 @@ $(document).ready(function() {
 
         $submit.on("submit", function(event) {
             event.preventDefault();
+            console.log(CompanyId);
     
             const newProduct = {
                 name: $product_name.val().trim(),
