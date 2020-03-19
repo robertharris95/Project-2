@@ -3,7 +3,7 @@ $(document).ready(function() {
     const $signUp = $("form.signup");
     const $userNameInput = $("#first_name");
     const $userLastInput = $("#last_name");
-    const $company = $("#company"); //@@todo add company field to signup. 
+    const $company = $("#company");
     const $emailInput = $("#email");
     const $passInput = $("#password");
 
@@ -13,7 +13,7 @@ $(document).ready(function() {
         let userData = {
             name: $userNameInput.val().trim(),
             last: $userLastInput.val().trim(),
-            // company: $company.val().trim(),
+            company: $company.val().trim(),
             email: $emailInput.val().trim(),
             password: $passInput.val().trim()
         }

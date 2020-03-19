@@ -28,11 +28,11 @@ module.exports = function(app) {
   app.get("/members", isAuthenticated, function(req, res) {
     console.log(req);
     db.Product.findAll({
-      include: [db.Company],
-      where: query
+      include: [db.Company]
+      // where: query
     }) 
     .then( (data) => { 
-      console.log(data);   
+      console.log("Find all Data: @@@#@#@#@#@#@#@", data);   
       res.render("index", { product: data });
     });
   });
