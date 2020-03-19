@@ -10,6 +10,3 @@ module.exports = function(sequelize, Datatypes) {
     };
     return Company;
 };
-
-// @@ Does company need associate to user? user already has associate @@
-// DELETE THIS IF YOU KNOW. @@

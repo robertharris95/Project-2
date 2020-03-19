@@ -16,20 +16,21 @@ module.exports = function(app) {
   app.post("/api/signup", function(req, res) {
     console.log(req);
 
-    db.Company.create({ name: req.body.company });
-
-    db.User.create({
-      firstName: req.body.name,
-      lastName: req.body.last,
-      email: req.body.email,
-      password: req.body.password
-    })
+    db.Company.create({ name: req.body.company }).then( (dbCompany) => {
+      db.User.create({
+        firstName: req.body.name,
+        lastName: req.body.last,
+        email: req.body.email,
+        password: req.body.password,
+        CompanyId: dbCompany.id
+      })
       .then(function() {
         res.redirect(307, "/api/login");
       })
       .catch(function(err) {
         res.status(401).json(err);
       });
+    });
   });
 
   // Route for logging user out
