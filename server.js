@@ -19,9 +19,10 @@ app.use(passport.session());
 app.engine("handlebars", exphbs({ defaultLayout: "main"}));
 app.set("view engine", "handlebars");
 
-// require("ROUTES")
+require("./routes/html-routes")(app);
+require("./routes/api-routes")(app);
 
-db.sequelize.sync({ force: true }).then(function() {
+db.sequelize.sync().then(function() {
     app.listen(PORT, () => {
         console.log(`Server listening on: http://localhost:${PORT}`);
     });

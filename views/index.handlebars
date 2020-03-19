@@ -1,7 +1,8 @@
 <div id="products" class="product-container">
     <ul>  
         {{#each product}}
-        <li>{{product.name}}, {{product.QTY}}, {{product.pricing}}, {{product.company}}, <a href="{{product.contract}}">View Contract</a></li>
+        <li>{{product.product_name}}, {{product.quantity}}, {{product.min_length}} {{product.min_lengthUnits}}, {{product.rate}}, {{product.company}}, <a href="{{product.contract}}">View Contract</a></li>
+        <li><p>{{product.product_description}} - {{product.category}}</p></li>
         {{/each}}
     </ul>
 </div>
