@@ -26,9 +26,11 @@ module.exports = function(app) {
   // If a user who is not logged in tries to access this route they will be redirected to the signup page
   app.get("/members", isAuthenticated, function(req, res) {
     console.log(req);
+    let companies;
+    Company.findAll({}).then( (res) => companies = res);
     Product.findAll({})   // @@ relate every product to its company foreign key pass company data in same order.
     .then( (data) => {    
-      res.render("index", { product: data });
+      res.render("index", { product: data, company: companies });
     });
   });
 };
