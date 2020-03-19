@@ -13,7 +13,7 @@ $(document).ready(function() {
         let userData = {
             name: $userNameInput.val().trim(),
             last: $userLastInput.val().trim(),
-            company: $company.val().trim(),
+            // company: $company.val().trim(),
             email: $emailInput.val().trim(),
             password: $passInput.val().trim()
         }
