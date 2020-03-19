@@ -26,13 +26,13 @@ module.exports = function(app) {
   // Here we've add our isAuthenticated middleware to this route.
   // If a user who is not logged in tries to access this route they will be redirected to the signup page
   app.get("/members", isAuthenticated, function(req, res) {
-    console.log(req);
+    //console.log(req);
     db.Product.findAll({
-      include: [db.Company],
-      where: query
+      include: [db.Company]
+      // where: query
     }) 
     .then( (data) => { 
-      console.log(data);   
+      console.log("Find all Data: @@@#@#@#@#@#@#@", data);   
       res.render("index", { product: data });
     });
   });

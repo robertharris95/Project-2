@@ -49,7 +49,8 @@ module.exports = function(app) {
       // Sending back a password, even a hashed password, isn't a good idea
       res.json({
         email: req.user.email,
-        id: req.user.id
+        id: req.user.id,
+        CompanyId: req.user.CompanyId
       });
     }
   });
@@ -58,7 +59,7 @@ module.exports = function(app) {
   app.get("api/products", (req, res) => {
     console.log(req);
 
-    const { name, desc, quant, minLen, minLenUnits, rate, category, contract } = req.body;
+    const { name, desc, quant, minLen, minLenUnits, rate, category, contract, CompanyId } = req.body;
 
     //@@ todo relate every product created to a company. could use logged in user data.
 
@@ -70,7 +71,8 @@ module.exports = function(app) {
       min_lengthUnits: minLenUnits,
       rate: rate,
       category: category,
-      contract: contract
+      contract: contract,
+      CompanyId: CompanyId
     });
   });
 };
