@@ -12,6 +12,40 @@ $(document).ready(function() {
     const $contract = $("minimum_clause");  //how to add contrract file to sql temp a link.
     const $submit = $("submit_info");
 
+    $.get("/api/user_data").then( (data) => {
+        let CompanyId = data.CompanyId;
+
+        $submit.on("submit", function(event) {
+            event.preventDefault();
+    
+            const newProduct = {
+                name: $product_name.val().trim(),
+                description: $product_description.val().trim(),
+                quantity: $quantity.val(),
+                minLength: $min_length.val(),
+                lengthUnits: $min_lengthUnits.val(),
+                rate: $rate.val(),
+                category: $category.val().trirm(),
+                contract: $contract.val().trim()
+            }
+    
+            const valid = validInput(newProduct);
+    
+            if (valid) {
+                $.post("/api/products", {
+                    name: newProduct.name,
+                    description: newProduct.description,
+                    quantity: newProduct.quantity,
+                    minLength: newProduct.minLength,
+                    lengthUnits: newProduct.lengthUnits,
+                    rate: newProduct.lengthUnits,
+                    category: newProduct.category,
+                    CompanyId: CompanyId  
+                });
+            }
+        });
+    });
+
     function validInput(object) {
         for (const val in object) {
             if (object[val] === null){
@@ -20,33 +54,4 @@ $(document).ready(function() {
         }
         return true;
     }
-
-    $submit.on("submit", function(event) {
-        event.preventDefault();
-
-        const newProduct = {
-            name: $product_name.val().trim(),
-            description: $product_description.val().trim(),
-            quantity: $quantity.val(),
-            minLength: $min_length.val(),
-            lengthUnits: $min_lengthUnits.val(),
-            rate: $rate.val(),
-            category: $category.val().trirm(),
-            contract: $contract.val().trim()
-        }
-
-        const valid = validInput(newProduct);
-        // S or no S?
-        if (valid) {
-            $.post("/api/products", {
-                name: newProduct.name,
-                description: newProduct.description,
-                quantity: newProduct.quantity,
-                minLength: newProduct.minLength,
-                lengthUnits: newProduct.lengthUnits,
-                rate: newProduct.lengthUnits,
-                category: newProduct.category  
-            });
-        }
-    });
 })
