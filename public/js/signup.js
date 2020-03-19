@@ -3,6 +3,7 @@ $(document).ready(function() {
     const $signUp = $("form.signup");
     const $userNameInput = $("#first_name");
     const $userLastInput = $("#last_name");
+    const $company = $("#company"); //@@todo add company field to signup. 
     const $emailInput = $("#email");
     const $passInput = $("#password");
 
@@ -12,6 +13,7 @@ $(document).ready(function() {
         let userData = {
             name: $userNameInput.val().trim(),
             last: $userLastInput.val().trim(),
+            company: $company.val().trim(),
             email: $emailInput.val().trim(),
             password: $passInput.val().trim()
         }
@@ -22,11 +24,12 @@ $(document).ready(function() {
             $.post("/api/signup", {
                 name: userData.name,
                 last: userData.last,
+                company: userData.company,
                 email: userData.email,
                 password: userData.password   
             })
             .then( () => {
-                window.location.replace("/")
+                window.location.replace("/members")
             })
             .catch(handleSignupErr);
         }
