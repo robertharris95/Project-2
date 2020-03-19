@@ -2,15 +2,15 @@
 
 $(document).ready(function() {
 
-    const $product_name = $();
-    const $product_description = $();
-    const $quantity = $();
-    const $min_length = $();
-    const $min_lengthUnits = $();
-    const $rate = $();
-    const $category = $();
-    const $contract = $();  //how to add contrract file to sql temp a link.
-    const $submit = $();
+    const $product_name = $("product_name");
+    const $product_description = $("product_description");
+    const $quantity = $("average_quantity");
+    const $min_length = $("minimum_length");
+    const $min_lengthUnits = $("minimum_lengthunits");
+    const $rate = $("product_rate");
+    const $category = $("category");
+    const $contract = $("minimum_clause");  //how to add contrract file to sql temp a link.
+    const $submit = $("submit_info");
 
     function validInput(object) {
         for (const val in object) {
