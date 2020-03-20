@@ -54,8 +54,7 @@ module.exports = function(app) {
       });
     }
   });
-
-  // To insert new products from Seller.html @@todo Add products.js to main.handlebars 
+ 
   app.post("/api/products", (req, res) => {
     console.log(req.body);
 
@@ -72,9 +71,5 @@ module.exports = function(app) {
       contract: contract,
       CompanyId: CompanyId
     });
-  });
-
-  app.post("/api/files", (req, res) => {
-    console.log(req);
   });
 };
