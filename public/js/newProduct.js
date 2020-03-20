@@ -1,11 +1,12 @@
 $(document).ready(function() {
 
+    
     const $form = document.getElementById("productForm");
     const $product_name = $("#product_name");
     const $product_description = $("#product_description");
     const $quantity = $("#average_quantity");
     const $min_length = $("#minimum_length");
-    const $min_lengthUnits = $("#minimum_lengthunits"); // use this to select length units.
+    let $lengthSelect = $("select").formSelect();
     const $rate = $("#product_rate");
     const $category = $("#category");
     const $contract = $("#contract_link");  
@@ -24,7 +25,7 @@ $(document).ready(function() {
             description: $product_description.val().trim(),
             quantity: $quantity.val(),
             minLength: $min_length.val(),
-            lengthUnits: $min_lengthUnits.val(),
+            lengthUnits: $lengthSelect[0].value,
             rate: $rate.val(),
             category: $category.val().trim(),
             contract: $contract.val().trim(),
