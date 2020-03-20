@@ -18,7 +18,7 @@ $(document).ready(function() {
         CompanyId = data.CompanyId;
     });
 
-    $submitBtn.on("submit", function(event) {
+    $submit.on("submit", function(event) {
         event.preventDefault();
 
         const newProduct = {
