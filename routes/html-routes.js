@@ -27,13 +27,20 @@ module.exports = function(app) {
   // If a user who is not logged in tries to access this route they will be redirected to the signup page
   app.get("/members", isAuthenticated, function(req, res) {
     //console.log(req);
+    if (!req.user) {
+      res.redirect("/");
+    }
+
     db.Product.findAll({
-      include: [db.Company]
-      // where: query
+      include: db.Company
     }) 
     .then( (data) => { 
-      console.log("Find all Data: @@@#@#@#@#@#@#@", data);   
-      res.render("index", { product: data });
+      const productArray = new Array();
+      for (let prod of data) {
+        prod.dataValues.Company = prod.dataValues.Company.dataValues;
+        productArray.push(prod.dataValues);
+      }  
+      res.render("index", { product: productArray });
     });
   });
 

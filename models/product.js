@@ -2,17 +2,11 @@ module.exports = function(sequelize, Datatypes) {
     const Product = sequelize.define("Product", {
         product_name: {
             type: Datatypes.STRING,
-            allowNull: false,
-            validate: {
-                len: [1]
-            }
+            allowNull: false
         },
         product_description: {
             type: Datatypes.TEXT,
-            allowNull: false,
-            validate: {
-                len: [20]
-            }
+            allowNull: false
         },
         quantity: {
             type: Datatypes.INTEGER,
@@ -32,10 +26,7 @@ module.exports = function(sequelize, Datatypes) {
         },
         category: {
             type: Datatypes.STRING,
-            allowNull: false,
-            validate: {
-                len: [1]
-            }
+            allowNull: false
         },
         contract: {
             type: Datatypes.STRING,
