@@ -5,7 +5,7 @@ $(document).ready(function() {
     const $product_description = $("#product_description");
     const $quantity = $("#average_quantity");
     const $min_length = $("#minimum_length");
-    const $min_lengthUnits = $("#minimum_lengthunits");
+    const $min_lengthUnits = $("#minimum_lengthunits"); // use this to select length units.
     const $rate = $("#product_rate");
     const $category = $("#category");
     const $contract = $("#contract_link");  

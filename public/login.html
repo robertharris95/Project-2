@@ -1,46 +1,48 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css">
-    <link href="stylesheets/style.css" rel="stylesheet">
-    <link rel="icon" href="logo4.png">
-    <title>CONTRACT BAY</title>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css">
+  <link href="stylesheets/style.css" rel="stylesheet">
+  <link rel="icon" href="logo4.png">
+  <title>CONTRACT BAY</title>
 </head>
+
 <body>
   <nav id="navbar">
     <div class="nav-wrapper">
-      <img id="logo" src="../public/logo4.png">
+      <img id="logo" src="/logo4.png">
       <ul id="nav-mobile" class="right hide-on-med-and-down">
         <li><a id="login_nav" href="login.html">LOG IN</a></li>
         <li><a id="login_nav" href="signup.html">SIGN UP</a></li>
-        <!-- <li><a href="collapsible.html">JavaScript</a></li> -->
       </ul>
     </div>
   </nav>
-      <form class="container login">
+  <form class="container login">
+    <div class="row">
+      <div class="col-md-6 col-md-offset-3">
+        <h2>Log In</h2>
         <div class="row">
-          <div class="col-md-6 col-md-offset-3">
-            <h2>Log In</h2>
-            <div class="row">
-                <div class="input-field col s12">
-                  <input id="email-input" type="email" class="validate">
-                  <label for="email">Email</label>
-                </div>
-              </div>
-                <div class="row">
-                    <div class="input-field col s12">
-                  <input id="password-input" type="password" class="validate">
-                  <label for="password">Password</label>
-                </div>
-              </div>
-              <button id="submit" type="submit" class="waves-effect waves-light btn">LOG IN</button>
-              <p>Or sign up <a href="/signup">here</a></p>
-              </div>
-            </div>
-      </form>
-<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
-<script type="text/javascript" src="./js/login.js"></script>
-</body> 
+          <div class="input-field col s12">
+            <input id="email-input" type="email" class="validate">
+            <label for="email">Email</label>
+          </div>
+        </div>
+        <div class="row">
+          <div class="input-field col s12">
+            <input id="password-input" type="password" class="validate">
+            <label for="password">Password</label>
+          </div>
+        </div>
+        <button id="submit" type="submit" class="waves-effect waves-light btn">LOG IN</button>
+        <p>Or sign up <a href="/signup">here</a></p>
+      </div>
+    </div>
+  </form>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+  <script type="text/javascript" src="./js/login.js"></script>
+</body>
+
 </html>
