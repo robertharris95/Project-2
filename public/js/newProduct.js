@@ -1,5 +1,6 @@
 $(document).ready(function() {
 
+    const $form = document.getElementById("productForm");
     const $product_name = $("#product_name");
     const $product_description = $("#product_description");
     const $quantity = $("#average_quantity");
@@ -47,6 +48,7 @@ $(document).ready(function() {
     }
 
     function submitDone(name) {
+        $form.reset();
         $("#alert .done").text(`Added product ${name}.`);
         $("#alert").fadeIn(4000);
     }
