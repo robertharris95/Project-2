@@ -9,12 +9,12 @@ $(document).ready(function() {
     $(document).on("click", "button.delete", handleProductDelete);
     $(document).on("click", "button.edit", handleProductEdit);
 
-    const products;
+    let products;
 
 
 
     const url = window.location.search;
-    const companyId;
+    let companyId;
     if (url.indexOf("?company_id=") !== -1) {
         getProducts(companyId);
     } else {

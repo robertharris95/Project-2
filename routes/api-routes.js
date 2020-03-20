@@ -49,28 +49,28 @@ module.exports = function(app) {
       // Sending back a password, even a hashed password, isn't a good idea
       res.json({
         email: req.user.email,
-        id: req.user.id
+        id: req.user.id,
+        CompanyId: req.user.CompanyId
       });
     }
   });
 
   // To insert new products from Seller.html @@todo Add products.js to main.handlebars 
-  app.get("api/products", (req, res) => {
-    console.log(req);
+  app.post("/api/products", (req, res) => {
+    console.log(req.body);
 
-    const { name, desc, quant, minLen, minLenUnits, rate, category, contract } = req.body;
-
-    //@@ todo relate every product created to a company. could use logged in user data.
+    const { name, description, quantity, minLength, lengthUnits, rate, category, contract, CompanyId } = req.body;
 
     db.Product.create({
       product_name: name,
-      product_description: desc,
-      quantity: quant,
-      min_length: minLen,
-      min_lengthUnits: minLenUnits,
+      product_description: description,
+      quantity: quantity,
+      min_length: minLength,
+      min_lengthUnits: lengthUnits,
       rate: rate,
       category: category,
-      contract: contract
+      contract: contract,
+      CompanyId: CompanyId
     });
   });
 };
