@@ -6,31 +6,40 @@
 }
 #navbar {
     height: 100px;
-    background-image: url("../wood.jpg");
+    background-image: url("../dd.jpg");
+    border: none;
+    color: navy;
 }
 #file {
     margin-right: 10px;
 }
 #login_nav{
     margin-right: 10px;
+    color: navy;
 }
 #background {
-    background-image: url("../paper.jpg");
+    background-color: rgb(251, 251, 251);
 }
 ::placeholder {
     color: black;
 }
 * {
     font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
-    color: black;
+    color: navy;
 }
 body {
     background-color: rgb(251, 251, 251);
-    color: black;
+    color: navy;
 }
-#navbar {
-    background-color: rgb(218, 218, 245);
+#submit_info {
+    color: navy;
 }
-#cb {
-    background-color: black;
+.btn {
+    background-color: rgb(255, 255, 255);
+}
+option {
+    color: navy;
+}
+#submit {
+    color: navy;
 }
