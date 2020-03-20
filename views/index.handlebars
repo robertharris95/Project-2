@@ -1,8 +1,24 @@
-<div id="products" class="product-container">
-    <ul>  
-        {{#each product}}
-        <li>{{product.product_name}}, {{product.quantity}}, {{product.min_length}} {{product.min_lengthUnits}}, {{product.rate}}, {{product.company}}, <a href="{{product.contract}}">View Contract</a></li>
-        <li><p>{{product.product_description}} - {{product.category}}</p></li>
-        {{/each}}
-    </ul>
-</div>
+    <div id="products" class="product-container">
+        <div class="row">
+          <div class="col-md-6 col-md-offset-3">
+            <h2>Members Page</h2>
+            <div class="col s12 m12">
+                <div class="card horizontal">
+                  <div class="card-stacked">
+                    <div class="card-content">
+                     <ul>  
+                        {{#each product}}
+                        <li>{{product.product_name}}, {{product.quantity}}, {{product.min_length}} {{product.min_lengthUnits}}, {{product.rate}}, {{product.company}}, <a href="{{product.contract}}">View Contract</a></li>
+                        <li><p>{{product.product_description}} - {{product.category}}</p></li>
+                        {{/each}}
+                     </ul>
+                    </div>
+                    <div class="card-action">
+                      <a href="#">Request info</a>
+                    </div>
+                  </div>
+                </div>
+              </div>
+          </div>
+        </div>
+    </div>

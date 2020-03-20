@@ -1,7 +1,7 @@
 // To go in seller.html add to products api route
 
 $(document).ready(function() {
-
+    $('select').formSelect();
     const $product_name = $("product_name");
     const $product_description = $("product_description");
     const $quantity = $("average_quantity");
