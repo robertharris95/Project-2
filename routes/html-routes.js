@@ -27,6 +27,9 @@ module.exports = function(app) {
   // If a user who is not logged in tries to access this route they will be redirected to the signup page
   app.get("/members", isAuthenticated, function(req, res) {
     //console.log(req);
+    if (!req.user) {
+      res.redirect("/");
+    }
     db.Product.findAll({
       include: [db.Company]
       // where: query

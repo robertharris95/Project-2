@@ -33,11 +33,11 @@ $(document).ready(function() {
             })
             .catch(handleSignupErr);
         }
-    })
+    });
 
     function validInput(object) {
         for (const val in object) {
-            if (object[val] === null){
+            if (object[val] === null || object[val] === ""){
                 return false
             }
         }

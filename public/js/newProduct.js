@@ -46,7 +46,8 @@ $(document).ready(function() {
                 CompanyId: CompanyId  
             })
             .then( () => {
-                alert("Product added to our database.")
+                // alert("Product added to our database.")
+                console.log("Added product");
             })
             .catch(handleSubmitErr);
         }
@@ -60,7 +61,7 @@ $(document).ready(function() {
 
     function validInput(object) {
         for (const val in object) {
-            if (object[val] === null){
+            if (object[val] === null || object[val] === ""){
                 return false
             }
         }
