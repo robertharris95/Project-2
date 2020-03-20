@@ -4,14 +4,14 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css">
-    <link href="stylesheets/style.css" rel="stylesheet">
+    <link href="/stylesheets/style.css" rel="stylesheet">
     <title>CONTRACT BAY</title>
 </head>
 <body>
   <nav>
     <div class="container-fluid">
       <div class="nav-wrapper">
-        <a href="members.html" class="brand-logo"><img src="logo.png"></a>
+        <a href="/members" class="brand-logo"><img src="/logo.png"></a>
         <ul class="right hide-on-med-and-down">
 
           <li>
@@ -34,7 +34,7 @@
       <div class="col-md-6 col-md-offset-3">
       <h2>Product Information</h2>
         <div class="row">
-          <form class="col s12">
+          <form class="add col s12">
             <div class="row">
               <div class="input-field col s6">
                 <input placeholder="Product Name" id="product_name" type="text" class="validate">
@@ -95,13 +95,18 @@
                   <div class="file-path-wrapper">
                     <input class="file-path validate" type="text">
                   </div>
-                  <button id="submit_info" type="submit" class="waves-effect waves-light btn">SUBMIT</button>
-                  <script type="text/javascript" src="./js/newProduct.js"></script>
+                  <button type="submit" class="waves-effect waves-light btn">SUBMIT</button>
               </div>
           </form>
+          <div style="display: none" id="alert" class="alert alert-danger" role="alert">
+            <span class="glyphicon glyphicon-exclamation-sign" aria-hidden="true"></span>
+            <span class="sr-only">Error:</span> <span class="msg"></span>
+          </div>
         </div>
       </div>
     </div>
   </div>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+  <script type="text/javascript" src="/js/newProduct.js"></script>
 </body>
 </html>

@@ -56,19 +56,19 @@ module.exports = function(app) {
   });
 
   // To insert new products from Seller.html @@todo Add products.js to main.handlebars 
-  app.get("api/products", (req, res) => {
-    console.log(req);
+  app.get("/api/products", (req, res) => {
+    console.log(req.body);
 
-    const { name, desc, quant, minLen, minLenUnits, rate, category, contract, CompanyId } = req.body;
+    const { name, description, quantity, minLength, lengthUnits, rate, category, contract, CompanyId } = req.body;
 
     //@@ todo relate every product created to a company. could use logged in user data.
 
     db.Product.create({
       product_name: name,
-      product_description: desc,
-      quantity: quant,
-      min_length: minLen,
-      min_lengthUnits: minLenUnits,
+      product_description: description,
+      quantity: quantity,
+      min_length: minLength,
+      min_lengthUnits: lengthUnits,
       rate: rate,
       category: category,
       contract: contract,
