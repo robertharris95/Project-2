@@ -30,13 +30,17 @@ module.exports = function(app) {
     if (!req.user) {
       res.redirect("/");
     }
+
     db.Product.findAll({
-      include: [db.Company]
-      // where: query
+      include: db.Company
     }) 
     .then( (data) => { 
-      console.log("Find all Data: @@@#@#@#@#@#@#@", data);   
-      res.render("index", { product: data });
+      const productArray = new Array();
+      for (let prod of data) {
+        prod.dataValues.Company = prod.dataValues.Company.dataValues;
+        productArray.push(prod.dataValues);
+      }  
+      res.render("index", { product: productArray });
     });
   });
 
