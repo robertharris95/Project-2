@@ -2,16 +2,17 @@
 
 $(document).ready(function() {
 
-    const $product_name = $("#product_name");
-    const $product_description = $("#product_description");
-    const $quantity = $("#average_quantity");
-    const $min_length = $("#minimum_length");
-    const $min_lengthUnits = $("#minimum_lengthunits");
-    const $rate = $("#product_rate");
-    const $category = $("#category");
-    const $contract = $("#minimum_clause");  //how to add contrract file to sql temp a link.
-    const $submitBtn = $("form.add");
-    let CompanyId;
+    $('select').formSelect();
+    const $product_name = $("product_name");
+    const $product_description = $("product_description");
+    const $quantity = $("average_quantity");
+    const $min_length = $("minimum_length");
+    const $min_lengthUnits = $("minimum_lengthunits");
+    const $rate = $("product_rate");
+    const $category = $("category");
+    const $contract = $("minimum_clause");  //how to add contrract file to sql temp a link.
+    const $submit = $("submit_info");
+
 
     $.get("/api/user_data").then( (data) => {
         CompanyId = data.CompanyId;

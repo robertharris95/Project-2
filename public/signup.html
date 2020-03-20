@@ -4,19 +4,21 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css">
+    <link href="stylesheets/style.css" rel="stylesheet">
+    <link rel="icon" href="logo4.png">
     <title>CONTRACT BAY</title>
 </head>
 <body>
-  <nav>
-    <div class="container-fluid">
-      <div class="nav-wrapper">
-
-        <a href="members.html" class="brand-logo"><img src="logo.png"></a>
-          <ul class="right hide-on-med-and-down">
-            <li><a href="login.html"><i class="material-icons right"></i>Log In</a></li>
-          </ul>
-        </div>
-      </nav>
+  <nav id="navbar">
+    <div class="nav-wrapper">
+      <img id="logo" src="../public/logo4.png">
+      <ul id="nav-mobile" class="right hide-on-med-and-down">
+        <li><a id="login_nav" href="login.html">LOG IN</a></li>
+        <li><a id="login_nav" href="signup.html">SIGN UP</a></li>
+        <!-- <li><a href="collapsible.html">JavaScript</a></li> -->
+      </ul>
+    </div>
+  </nav>
       <div class="container">
         <div class="row">
           <div class="col-md-6 col-md-offset-3">
@@ -45,7 +47,7 @@
             <div class="input-field col s12">
               <input placeholder="Password" id="password" type="password" class="validate">
               <br>
-              <button type="submit" class="waves-effect waves-light btn">SIGN UP</button>
+              <button id="submit" type="submit" class="waves-effect waves-light btn">SIGN UP</button>
               <p>Or log in <a href="/">here</a></p>
             </div>
             <div style="display: none" id="alert" class="alert alert-danger" role="alert">
