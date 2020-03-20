@@ -1,24 +1,22 @@
-// To go in seller.html add to products api route
-
 $(document).ready(function() {
 
-    $('select').formSelect();
-    const $product_name = $("product_name");
-    const $product_description = $("product_description");
-    const $quantity = $("average_quantity");
-    const $min_length = $("minimum_length");
-    const $min_lengthUnits = $("minimum_lengthunits");
-    const $rate = $("product_rate");
-    const $category = $("category");
-    const $contract = $("minimum_clause");  //how to add contrract file to sql temp a link.
-    const $submit = $("submit_info");
-
+    const $form = document.getElementById("productForm");
+    const $product_name = $("#product_name");
+    const $product_description = $("#product_description");
+    const $quantity = $("#average_quantity");
+    const $min_length = $("#minimum_length");
+    const $min_lengthUnits = $("#minimum_lengthunits"); // use this to select length units.
+    const $rate = $("#product_rate");
+    const $category = $("#category");
+    const $contract = $("#contract_link");  
+    const $submitBtn = $("form.add");
+    let CompanyId;
 
     $.get("/api/user_data").then( (data) => {
         CompanyId = data.CompanyId;
     });
 
-    $submit.on("submit", function(event) {
+    $submitBtn.on("submit", function(event) {
         event.preventDefault();
 
         const newProduct = {
@@ -37,43 +35,22 @@ $(document).ready(function() {
 
         if (valid) {
             $.post("/api/products", newProduct)
-            .then( () => {
-                // alert("Product added to our database.")
-                submitDone();
-                console.log("Added product");
-            })
+            .then(
+                submitDone(newProduct.name)
+            )
             .catch(handleSubmitErr);
         }
-
-        // if (valid) {
-        //     $.post("/api/products", {
-        //         name: newProduct.name,
-        //         description: newProduct.description,
-        //         quantity: newProduct.quantity,
-        //         minLength: newProduct.minLength,
-        //         lengthUnits: newProduct.lengthUnits,
-        //         rate: newProduct.lengthUnits,
-        //         category: newProduct.category,
-        //         contract: newProduct.contract,
-        //         CompanyId: CompanyId  
-        //     })
-        //     .then( () => {
-        //         // alert("Product added to our database.")
-        //         console.log("Added product");
-        //     })
-        //     .catch(handleSubmitErr);
-        // }
-
     });
     
     function handleSubmitErr(err) {
         $("#alert .msg").text(err.responseJSON);
-        $("#alert").fadeIn(500);
+        $("#alert").fadeIn(2000);
     }
 
-    function submitDone() {
-        $("#alert .msg").text("Added product successfully.");
-        $("#alert").fadeIn(500);
+    function submitDone(name) {
+        $form.reset();
+        $("#alert .done").text(`Added product ${name}.`);
+        $("#alert").fadeIn(4000);
     }
 
     function validInput(object) {
@@ -84,4 +61,4 @@ $(document).ready(function() {
         }
         return true;
     }
-})
+});

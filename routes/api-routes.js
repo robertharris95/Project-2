@@ -54,8 +54,7 @@ module.exports = function(app) {
       });
     }
   });
-
-  // To insert new products from Seller.html @@todo Add products.js to main.handlebars 
+ 
   app.post("/api/products", (req, res) => {
     console.log(req.body);
 

@@ -1,4 +1,4 @@
-//input new products
+//input new products for FUTURE
 $(document).ready(function() {
 
 

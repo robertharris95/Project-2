@@ -26,7 +26,7 @@
       <div class="col-md-6 col-md-offset-3">
         <h2>Product Information</h2>
         <div class="row">
-          <form class="add col s12">
+          <form id="productForm" class="add col s12">
             <div class="row">
               <div class="input-field col s6">
                 <input placeholder="Product Name" id="product_name" type="text" class="validate">
@@ -37,10 +37,24 @@
             </div>
             <div class="row">
               <div class="input-field col s6">
-                <input placeholder="Category" id="category" type="text" class="validate">
-              </div>
-              <div class="input-field col s6">
                 <input placeholder="Average Quantity" id="average_quantity" type="text" class="validate">
+              </div>
+            </div>
+
+            <div class="row">
+              <div class="input-field col s3">
+                <input placeholder="Minimum Length" id="minimum_length" type="text" class="validate">
+              </div>
+              <div class="input-field col s2">
+                <select>
+                  <option>Choose your option</option>
+                  <option value="1">Weekly</option>
+                  <option value="2">Monthly</option>
+                  <option value="3">Yearly</option>
+                </select>
+              </div>
+              <div class="input-field col s7">
+                <input placeholder="Category" id="category" type="text" class="validate">
               </div>
             </div>
             <div class="row">
@@ -48,39 +62,32 @@
                 <input placeholder="Product Rate" id="product_rate" type="text" class="validate">
               </div>
               <div class="input-field col s6">
-                <input placeholder="Minimum Clause" id="minimum_clause" type="text" class="validate">
-              </div>
-
-            </div>
-            <div class="row">
-              <div class="input-field col s6">
-                <select>
-                  <option>Choose your option</option>
-                  <option value="1">Weekly</option>
-                  <option value="2">Monthly</option>
-                  <option value="3">Yearly</option>
-                </select>
-                <label>Length of Clause</label>
+                <input placeholder="Link to your contract." id="contract_link" type="text" class="validate">
               </div>
             </div>
-
+              <div class="file-field input-field">
+                <div class="btn">
+                  <span>File</span>
+                  <input type="file" multiple>
+                </div>
+                <div class="file-path-wrapper">
+                  <input class="file-path validate" type="text" placeholder="Upload one or more files">
+                </div>
+              </div>
+              <button type="submit" class="waves-effect waves-light btn">SUBMIT</button>
+          </form>
+          <div class="row">
+            <div style="display: none" id="alert" class="alert alert-danger" role="alert">
+              <span class="glyphicon glyphicon-exclamation-sign" aria-hidden="true"></span>
+              <span class="sr-only">Success:</span> <span class="done"></span>
+            </div>
+            <div style="display: none" id="alert" class="alert alert-danger" role="alert">
+              <span class="glyphicon glyphicon-exclamation-sign" aria-hidden="true"></span>
+              <span class="sr-only">Error:</span> <span class="msg"></span>
+            </div>
+          </div>
+            </div>
         </div>
-        <form action="#">
-          <div class="file-field input-field">
-            <div class="btn">
-              <span>File</span>
-              <input type="file">
-            </div>
-            <div class="file-path-wrapper">
-              <input class="file-path validate" type="text">
-            </div>
-        </form>
-        <button id="submit_info" type="submit" class="waves-effect waves-light btn">SUBMIT</button>
-        <script src="https://code.jquery.com/jquery-3.4.1.min.js"
-          integrity="sha256-CSXorXvZcTkaix6Yvo6HppcZGetbYMGWSFlBw8HfCJo=" crossorigin="anonymous">
-          </script>
-        <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
-        <script type="text/javascript" src="./js/newProduct.js"></script>
       </div>
       </form>
     </div>
