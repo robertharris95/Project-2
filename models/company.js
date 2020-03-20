@@ -1,6 +1,10 @@
 module.exports = function(sequelize, Datatypes) {
     const Company = sequelize.define("Company", {
-        name: Datatypes.STRING
+        name: {
+            type: Datatypes.STRING,
+            allowNull: false,
+            unique: true
+        }
     });
 
     Company.associate = function(models) {

@@ -73,4 +73,8 @@ module.exports = function(app) {
       CompanyId: CompanyId
     });
   });
+
+  app.post("/api/files", (req, res) => {
+    console.log(req);
+  });
 };

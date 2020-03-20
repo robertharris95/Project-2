@@ -36,11 +36,11 @@ $(document).ready(function() {
 
         if (valid) {
             $.post("/api/products", newProduct)
-            .then( () => {
+            .then(
                 // alert("Product added to our database.")
-                submitDone();
-                console.log("Added product");
-            })
+                submitDone(newProduct.name)
+                // console.log("Added product");
+            )
             .catch(handleSubmitErr);
         }
 
@@ -67,12 +67,12 @@ $(document).ready(function() {
     
     function handleSubmitErr(err) {
         $("#alert .msg").text(err.responseJSON);
-        $("#alert").fadeIn(500);
+        $("#alert").fadeIn(2000);
     }
 
-    function submitDone() {
-        $("#alert .msg").text("Added product successfully.");
-        $("#alert").fadeIn(500);
+    function submitDone(name) {
+        $("#alert .done").text(`Added product ${name}.`);
+        $("#alert").fadeIn(4000);
     }
 
     function validInput(object) {
@@ -83,4 +83,4 @@ $(document).ready(function() {
         }
         return true;
     }
-})
+});

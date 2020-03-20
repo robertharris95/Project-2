@@ -34,7 +34,7 @@
       <div class="col-md-6 col-md-offset-3">
       <h2>Product Information</h2>
         <div class="row">
-          <form class="add col s12">
+          <form method="POST" action="/api/files" class="add col s12">
             <div class="row">
               <div class="input-field col s6">
                 <input placeholder="Product Name" id="product_name" type="text" class="validate">
@@ -90,14 +90,18 @@
               <div class="file-field input-field">
                 <div class="btn">
                   <span>File</span>
-                  <input type="file">
+                  <input type="file" multiple>
                 </div>
-                  <div class="file-path-wrapper">
-                    <input class="file-path validate" type="text">
-                  </div>
-                  <button type="submit" class="waves-effect waves-light btn">SUBMIT</button>
+                <div class="file-path-wrapper">
+                  <input class="file-path validate" type="text" placeholder="Upload one or more files">
+                </div>
               </div>
+              <button type="submit" class="waves-effect waves-light btn">SUBMIT</button>
           </form>
+          <div style="display: none" id="alert" class="alert alert-danger" role="alert">
+            <span class="glyphicon glyphicon-exclamation-sign" aria-hidden="true"></span>
+            <span class="sr-only">Success:</span> <span class="done"></span>
+          </div>
           <div style="display: none" id="alert" class="alert alert-danger" role="alert">
             <span class="glyphicon glyphicon-exclamation-sign" aria-hidden="true"></span>
             <span class="sr-only">Error:</span> <span class="msg"></span>
