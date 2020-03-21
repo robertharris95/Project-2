@@ -36,22 +36,22 @@ $(document).ready(function() {
 
         if (valid) {
             $.post("/api/products", newProduct)
-            .then(
-                submitDone(newProduct.name)
-            )
+            .then(submitDone(newProduct))
             .catch(handleSubmitErr);
         }
     });
     
     function handleSubmitErr(err) {
-        $("#alert .msg").text(err.responseJSON);
-        $("#alert").fadeIn(2000);
+        $("#alertBad .msg").text(err.responseJSON.errors[0].message);
+        $("#alertBad").fadeIn(750);
+        $("#alertBad").fadeOut(7000);
     }
 
-    function submitDone(name) {
+    function submitDone(object) {
         $form.reset();
-        $("#alert .done").text(`Added product ${name}.`);
-        $("#alert").fadeIn(4000);
+        $("#alertGood .done").text(`Added product ${object.name}.`);
+        $("#alertGood").fadeIn(750);
+        $("#alertGood").fadeOut(7000);
     }
 
     function validInput(object) {

@@ -70,6 +70,9 @@ module.exports = function(app) {
       category: category,
       contract: contract,
       CompanyId: CompanyId
+    })
+    .catch(function(err) {
+      res.status(401).json(err);
     });
   });
 };

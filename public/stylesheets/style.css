@@ -45,5 +45,36 @@ option {
 }
 #selectLen {
     margin-left: 10px;
-    max-width: 60px;
+    max-width: 105px;
+}
+#productDiv {
+    margin: 20px;
+}
+#productDiv li{
+    margin-bottom: 10px;
+}
+#productList {
+    list-style-type: square;
+}
+#alertBad {
+    position: relative;
+    bottom: -25px;
+}
+#alertBad .sr-only {
+    color: red;
+    font-size: 25px;
+}
+#alertBad .msg {
+    color: red;
+    font-size: 25px;
+}
+#alertGood {
+    position: relative;
+    bottom: -25px;
+}
+#alertGood .sr-only {
+    font-size: 25px;
+}
+#alertGood .msg {
+    font-size: 25px;
 }
