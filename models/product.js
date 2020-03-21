@@ -5,7 +5,7 @@ module.exports = function(sequelize, Datatypes) {
             allowNull: false,
             validate: {
                 is: {
-                    args: /^[a-zA-Z0-9 -.]+$/i,
+                    args: /^[a-zA-Z0-9 -]+/i,
                     msg: "Please enter a valid name for your product. No special characters allowed."
                 }
             }
