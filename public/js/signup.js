@@ -45,7 +45,7 @@ $(document).ready(function() {
     }
 
     function handleSignupErr(err) {
-        $("#alert .msg").text(err.responseJSON);
+        $("#alert .msg").text(err.responseJSON.errors[0].message);
         $("#alert").fadeIn(500);
     }
 })
