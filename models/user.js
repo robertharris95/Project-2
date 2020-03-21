@@ -6,11 +6,23 @@ module.exports = function(sequelize, DataTypes) {
     // The email cannot be null, and must be a proper email before creation
     firstName: {
       type: DataTypes.STRING,
-      allowNull: false
+      allowNull: false,
+      validate: {
+        isAlpha: {
+            args: true,
+            msg: "Please enter a name. No special characters or numbers."
+        }
+    }
     },
     lastName: {
       type: DataTypes.STRING,
-      allowNull: false
+      allowNull: false,
+      validate: {
+        isAlpha: {
+            args: true,
+            msg: "Please enter a valid last name. No special characters or numbers."
+        }
+    }
     },
     email: {
       type: DataTypes.STRING,

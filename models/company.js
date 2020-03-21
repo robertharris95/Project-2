@@ -3,7 +3,13 @@ module.exports = function(sequelize, Datatypes) {
         name: {
             type: Datatypes.STRING,
             allowNull: false,
-            unique: true
+            unique: true,
+            validate: {
+                isAlphanumeric: {
+                    args: true,
+                    msg: "Please enter a valid name for your company. No special characters allowed."
+                }
+            }
         }
     });
 
