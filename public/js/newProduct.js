@@ -36,13 +36,24 @@ $(document).ready(function() {
 
         if (valid) {
             $.post("/api/products", newProduct)
-            .then(submitDone(newProduct))
+            .then(() => {
+                const add = confirm("Press enter to add another product.");
+                add === true ? submitDone(newProduct) : window.location.replace("/members");
+            })
             .catch(handleSubmitErr);
+        } else {
+            handleBadSubmit();
         }
     });
     
     function handleSubmitErr(err) {
         $("#alertBad .msg").text(err.responseJSON.errors[0].message);
+        $("#alertBad").fadeIn(750);
+        $("#alertBad").fadeOut(7000);
+    }
+
+    function handleBadSubmit() {
+        $("#alertBad .msg").text("All item fields must be filled before submission.");
         $("#alertBad").fadeIn(750);
         $("#alertBad").fadeOut(7000);
     }

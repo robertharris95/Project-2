@@ -75,6 +75,6 @@ option {
 #alertGood .sr-only {
     font-size: 25px;
 }
-#alertGood .msg {
+#alertGood .done {
     font-size: 25px;
 }

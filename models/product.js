@@ -53,8 +53,8 @@ module.exports = function(sequelize, Datatypes) {
                     msg: "Please enter a valid numeric quantity."
                 },
                 min: {
-                    args: 1,
-                    msg: "Please enter a valid rate greater than zero."
+                    args: .01,
+                    msg: "Please enter a rate greater than zero."
                 }
             }
         },
