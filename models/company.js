@@ -6,7 +6,7 @@ module.exports = function(sequelize, Datatypes) {
             unique: true,
             validate: {
                 is: {
-                    args: /^[a-zA-Z0-9 -.]+$/i,
+                    args: /^[a-z0-9 .]+/i,
                     msg: "Please enter a valid name for your company. No special characters allowed."
                 }
             }
