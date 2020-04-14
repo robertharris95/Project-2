@@ -5,7 +5,7 @@ import React from "react";
 export function Input(props) {
     return (
         <div className={"input-field "+ props.col}>
-            <input id={props.inputId} { ...props } type="text" class="validate" />
+            <input id={props.inputId} { ...props } type="text" className="validate" />
             <label for={props.inputId}>{props.label}</label>
         </div>
     );
@@ -15,7 +15,7 @@ export function Input(props) {
 export function InputPassword(props) {
     return (
         <div className={"input-field "+ props.col}>
-            <input id={props.inputId} { ...props } type="password" class="validate" />
+            <input id={props.inputId} { ...props } type="password" className="validate" />
             <label for={props.inputId}>{props.label}</label>
         </div>
     );
@@ -25,17 +25,19 @@ export function InputPassword(props) {
 export function DisabledInput(props) {
     return (
         <div className={"input-field " + props.col}>
-            <input disabled value={props.label} id={props.inputId} type="text" class="validate" />
+            <input disabled value={props.label} id={props.inputId} type="text" className="validate" />
         </div>
     );
 }
 
 
-//props: label, matIcon.
+//props: label, maticon.
 export function FormBtn(props) {
     return (
         <button className="btn waves-effect waves-light" { ...props } style={{ margin: 15 }} type="submit" name="action">
-            <i className={"material-icons " + props.matIcon}></i>
+            {props.label}
         </button>
     );
 }
+
+{/* <i className={"material-icons " + props.maticon}></i> */}

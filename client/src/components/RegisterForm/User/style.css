@@ -1,6 +1,7 @@
-.company {
+#user {
     display: block;
 }
-.user {
+#comp {
     display: none;
 }
+

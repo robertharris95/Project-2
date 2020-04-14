@@ -1,0 +1,10 @@
+#btn {
+    background-color: transparent;
+    color: black;
+    margin: 5px;
+    border-radius: 8px;
+}
+#btns {
+    position: relative;
+    top: 4px;
+}

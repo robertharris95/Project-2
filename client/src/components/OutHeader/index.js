@@ -9,9 +9,9 @@ function OutHeader() {
     
     return (
         <nav id="navbar" className="header row z-depth-4">
-            <div class="nav-wrapper">
+            <div className="nav-wrapper">
                 <img id="logo" src={logo} />
-                <ul id="nav-mobile" class="right">
+                <ul id="nav-mobile" className="right">
                     <li><Link id="login_nav" to={"/"} className = { location.pathname === "/" ? "nav-link active" : "nav-link" }>Log In</Link></li>
                     <li><Link id="login_nav" to={"/register"} className = { location.pathname === "/register" ? "nav-link active" : "nav-link" }>Register</Link></li>
                 </ul>

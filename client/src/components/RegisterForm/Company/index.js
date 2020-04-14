@@ -2,9 +2,10 @@ import React from "react";
 import { DisabledInput, Input, InputPassword, FormBtn } from "../../Form";
 import "./style.css";
 
-function RegisterCompany() {
+// props addClasses.
+function RegisterCompany(props) {
     return (
-        <div className="row">
+        <div className={"row " + props.addClasses}>
             <form className="col s12">
                 <div className="row">
                     <DisabledInput col="col s6"
@@ -55,19 +56,18 @@ function RegisterCompany() {
                     />
                 </div>
                 <div className="row">
-                    <Input col="col s6" 
+                    <InputPassword col="col s6" 
                         inputId="password"
                         label="New Password"
                     />
                 </div>
                 <div className="row">
-                    <Input col="col s6"
+                    <InputPassword col="col s6"
                         inputId="re_password"
                         label="Verify Password"
                     />
                 </div>
                 <FormBtn label="Register" 
-                    matIcon="done"
                 />
             </form>
         </div>
