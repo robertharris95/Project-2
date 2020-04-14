@@ -1,22 +1,14 @@
-module.exports = function(sequelize, Datatypes) {
-    const Company = sequelize.define("Company", {
-        name: {
-            type: Datatypes.STRING,
-            allowNull: false,
-            unique: true,
-            validate: {
-                is: {
-                    args: /^[a-zA-Z0-9 .]+/i,
-                    msg: "Please enter a valid name for your company. No special characters allowed."
-                }
-            }
-        }
-    });
+const mongoose = require("mongoose");
+const Schema = mongoose.Schema;
 
-    Company.associate = function(models) {
-        Company.hasMany(models.Product, {
-            onDelete: "cascade"
-        });
-    };
-    return Company;
-};
+const companySchema = new Schema({
+    companyName: { type: String, required: true },
+    address: { type: String, required: true },
+    sector: { type: String, required: true },
+    users: [],
+    products: []
+});
+
+const Company = mongoose.model("Company", companySchema);
+
+module.exports = Company;

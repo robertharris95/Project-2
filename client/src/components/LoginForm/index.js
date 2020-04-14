@@ -1,5 +1,6 @@
 import React from "react";
 import { Link, useLocation } from "react-router-dom";
+import { Input, FormBtn, InputPassword } from "../Form";
 import "./style.css";
 import Wrapper from "../Wrapper";
 
@@ -9,23 +10,23 @@ function LoginForm() {
 
     return (
         <Wrapper>
-            <form class="container login">
-                <div class="row">
-                    <div class="col-md-6 col-md-offset-3">
+            <form className="container login">
+                <div className="row">
+                    <div className="col-md-6 col-md-offset-3">
                         <h2>Log In</h2>
-                        <div class="row">
-                            <div class="input-field col s12">
-                                <input id="email-input" type="email" class="validate" />
-                                <label for="email">Email</label>
-                            </div>
+                        <div className="row">
+                            <Input col="col s12"
+                                inputId="email"
+                                label="Email"
+                            />
                         </div>
-                        <div class="row">
-                            <div class="input-field col s12">
-                                <input id="password-input" type="password" class="validate" />
-                                <label for="password">Password</label>
-                            </div>
+                        <div className="row">
+                            <InputPassword col="col s12"
+                                inputId="password"
+                                label="Password"
+                            />
                         </div>
-                        <button id="submit" type="submit" class="waves-effect waves-light btn">LOG IN</button>
+                        <FormBtn label="LOG IN" />
                         <p>Or <Link id="login_nav" to={"/register"} className = { location.pathname === "/register" ? "nav-link active" : "nav-link" }>register here.</Link></p>
                     </div>
                 </div>
