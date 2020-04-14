@@ -1,0 +1,68 @@
+.card {
+    padding: 15px;
+    margin: 10px !important;
+}
+
+.btn {
+    float: right;
+    position: relative;
+    top: -2vh;
+    background-color: whitesmoke;
+    padding: 10px;
+    margin: 1.5vw;
+}
+
+.btn i {
+    position: relative;
+    top: -1vh;
+    right: 15%;
+}
+
+.card-content {
+    padding: 10px 20px 10px 20px !important;
+}
+
+#bookName {
+    font-size: 16px;
+    font-weight: 700;
+    text-decoration-line: underline;
+    float: left;
+}
+
+#author {
+    font-size: 14px;
+    font-weight: 300;
+}
+
+#bookName a {
+    color: black;
+}
+
+img {
+    margin-top: 14px;
+    max-width: 175px;
+    max-height: 175px;
+    float: left;
+}
+
+p {
+    font-size: 14px;
+    text-align: justify;
+}
+
+button#true {
+    display: block !important;
+    padding: 10px;
+}
+
+button#false {
+    display: none !important;
+}
+
+button.true {
+    display: none !important;
+}
+
+button.false {
+    display: block !important;
+}

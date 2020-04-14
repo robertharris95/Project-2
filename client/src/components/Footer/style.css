@@ -1,0 +1,12 @@
+.footer {
+    background-color: white;
+    padding: 20px 0px 20px 0px;
+}
+
+#footerTxt {
+    text-align: center;
+    font-family: sans-serif;
+    font-weight: 700;
+    font-size: 20px;
+    color: gray;
+}

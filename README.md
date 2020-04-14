@@ -1,2 +1,3 @@
-# Project-2
-Project 2
+# Contract Bay
+
+Have your clients just a click away.
