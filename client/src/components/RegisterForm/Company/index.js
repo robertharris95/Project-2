@@ -22,12 +22,18 @@ function RegisterCompany(props) {
                 companyName: companyName,
                 address: address,
                 sector: sector,
-                users: [],
-                products: []  
+                user: {
+                    firstName: firstName,
+                    lastName: lastName,
+                    position: position,
+                    email: email,
+                    password: password
+                }  
             }
             API.registerCompany(company)
-            .then( ({ _id }) => )
+            .then( (res) => console.log("res", res));
         }
+        // else say the password doesnt match.
     }
 
     return (
