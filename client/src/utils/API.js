@@ -2,6 +2,9 @@ import axios from "axios";
 
 export default {
     registerCompany: function(data) {
-        return axios.post("/api/register", data);
+        return axios.post("/api/register/company", data);
+    },
+    registerUser: function(data) {
+        return axios.post("/api/register/user", data)
     }
 }

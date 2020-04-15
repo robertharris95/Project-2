@@ -1,5 +1,6 @@
 import React, { useState } from "react";
 import { DisabledInput, Input, InputPassword, FormBtn } from "../../Form";
+import API from "../../../utils/API";
 import "./style.css";
 
 // props: addIds.
@@ -15,7 +16,25 @@ function RegisterUser(props) {
 
     function handleFormSubmit(event) {
         event.preventDefault();
-        
+        let newUser;
+        const { companyName, firstName, lastName, position, email, password, verifyPassword } = formObject;
+        if (password === verifyPassword) {
+            newUser = {
+                companyName: companyName,
+                user: {
+                    firstName: firstName,
+                    lastName: lastName,
+                    position: position,
+                    email: email,
+                    password: password
+                }  
+            }
+            API.registerUser(newUser)
+            .then( (res) => {
+                console.log("res", res);
+            });
+        }
+        // else say the password doesnt match.
     }
 
     return (
@@ -43,16 +62,24 @@ function RegisterUser(props) {
                 </div>
                 <div className="row">
                     <Input onChange={handleInputChange}
-                        name="email"
+                        name="companyName"
                         col="col s6" 
-                        inputId="email"
-                        label="Email"
+                        inputId="user_comp"
+                        label="Company"
                     />
+                </div>
+                <div className="row">
                     <Input onChange={handleInputChange}
                         name="position"
                         col="col s6" 
                         inputId="position"
                         label="Position"
+                    />
+                    <Input onChange={handleInputChange}
+                        name="email"
+                        col="col s6" 
+                        inputId="email"
+                        label="Email"
                     />
                 </div>
                 <div className="row">

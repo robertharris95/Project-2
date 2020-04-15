@@ -3,6 +3,7 @@ const routes = require("./routes");
 const session = require("express-session");
 const mongoose = require("mongoose");
 const passport = require("./config/passport");
+// const io = require("socket.io")(app); @@todo.
 
 const app = express();
 
@@ -26,3 +27,5 @@ mongoose.connect(process.env.MONGODB_URI || "mongodb://localhost/contractbay");
 app.listen(PORT, () => {
     console.log(`API server listening on PORT: ${PORT}.`);
 });
+
+// module.exports = io; @@ todo.

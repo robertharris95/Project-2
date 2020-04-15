@@ -31,7 +31,9 @@ function RegisterCompany(props) {
                 }  
             }
             API.registerCompany(company)
-            .then( (res) => console.log("res", res));
+            .then( (res) => {
+                console.log("res", res);
+            });
         }
         // else say the password doesnt match.
     }

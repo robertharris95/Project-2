@@ -1,5 +1,6 @@
 const db = require("../models");
 
+
 module.exports = {
     createCompany: function(req, res) {
         const { companyName, address, sector } = req.body;
@@ -12,10 +13,8 @@ module.exports = {
         };
 
         db.Company.create(newCompany)
-            .then( ({ _id }) => {
-                console.log("id", _id);
-                console.log("firstName", firstName);
-                return db.User.create({
+        .then( ({ _id }) => {
+            return db.User.create({
                 firstName: firstName,
                 lastName: lastName,
                 position: position,
@@ -23,11 +22,31 @@ module.exports = {
                 password: password,
                 admin: true,
                 companyId: _id
-                });
-            })
-            .then( (res) => res.json(res))
-            .catch( (err) => res.status(422).json(err));
-            // res.json(dbModel)
+            });
+        })
+        .then( (res) => res.json(res))
+        .catch( (err) => res.status(422).json(err));
+        // res.json(dbModel)
+    },
+    createUser: function(req, res) {
+        const { companyName } = req.body;
+        const { firstName, lastName, position, email, password } = req.body.user;
+        console.log(companyName);
+
+        db.Company.findOne({ companyName: companyName })
+        .then( ({ _id }) => {
+            return db.User.create({
+                firstName: firstName,
+                lastName: lastName,
+                position: position,
+                email: email,
+                password: password,
+                admin: false,
+                companyId: _id
+            });
+        })
+        .then( (res) => res.json(res))
+        .catch( (err) => res.status(422).json(err));
     }
 };
 
