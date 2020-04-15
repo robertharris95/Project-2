@@ -1,4 +1,5 @@
 const mongoose = require("mongoose");
+const bcrypt = require("bcryptjs");
 const Schema = mongoose.Schema;
 
 const userSchema = new Schema({
@@ -10,6 +11,15 @@ const userSchema = new Schema({
     admin: { type: Boolean, required: true },
     companyId: { type: String, required: true }
 });
+
+// userSchema.methods = {
+//     checkPassword: function (inputPassword) {
+//         return bcrypt.compareSync(inputPassword, this.password);
+//     },
+//     hashPassword: plainTextPassword => {
+//         return bcrypt.hashSync(plainTextPassword, 10)
+//     }
+// }
 
 const User = mongoose.model("User", userSchema);
 

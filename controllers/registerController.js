@@ -1,4 +1,5 @@
 const db = require("../models");
+const bcrypt = require("bcryptjs");
 
 
 module.exports = {
@@ -12,6 +13,8 @@ module.exports = {
             sector: sector
         };
 
+        const hashedPass = bcrypt.hashSync(password, bcrypt.genSaltSync(10), null);
+
         db.Company.create(newCompany)
         .then( ({ _id }) => {
             return db.User.create({
@@ -19,19 +22,20 @@ module.exports = {
                 lastName: lastName,
                 position: position,
                 email: email,
-                password: password,
+                password: hashedPass,
                 admin: true,
                 companyId: _id
             });
         })
-        .then( (res) => res.json(res))
+        .then( (res) => res.redirect(307, "/api/login"))
         .catch( (err) => res.status(422).json(err));
         // res.json(dbModel)
     },
     createUser: function(req, res) {
         const { companyName } = req.body;
         const { firstName, lastName, position, email, password } = req.body.user;
-        console.log(companyName);
+        
+        const hashedPass = bcrypt.hashSync(password, bcrypt.genSaltSync(10), null);
 
         db.Company.findOne({ companyName: companyName })
         .then( ({ _id }) => {
@@ -40,12 +44,12 @@ module.exports = {
                 lastName: lastName,
                 position: position,
                 email: email,
-                password: password,
+                password: hashedPass,
                 admin: false,
                 companyId: _id
             });
         })
-        .then( (res) => res.json(res))
+        .then( (res) => res.redirect(307, "/api/login"))
         .catch( (err) => res.status(422).json(err));
     }
 };

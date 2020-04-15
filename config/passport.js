@@ -1,5 +1,6 @@
 var passport = require("passport");
 var LocalStrategy = require("passport-local").Strategy;
+const bcrypt = require("bcryptjs");
 
 var db = require("../models");
 
@@ -11,11 +12,17 @@ passport.use(new LocalStrategy(
   },
   function(email, password, done) {
     // When a user tries to sign in this code runs
-    db.User.findOne({
-      where: {
-        email: email
-      }
-    }).then(function(dbUser) {
+    console.log("email", email);
+    console.log("password", password);
+    db.User.findOne({ email: email })
+      .then(function(dbUser) {
+      // password validation function replaces model prototype above.
+      console.log(dbUser);
+      const validPassword = (password, user) => {
+        return bcrypt.compareSync(password, user.password);
+      };
+
+      const valid = validPassword(password, dbUser);
       // If there's no user with the given email
       if (!dbUser) {
         return done(null, false, {
@@ -23,7 +30,8 @@ passport.use(new LocalStrategy(
         });
       }
       // If there is a user with the given email, but the password the user gives us is incorrect
-      else if (!dbUser.validPassword(password)) {
+      
+      else if (!valid) {
         return done(null, false, {
           message: "Incorrect password."
         });
@@ -44,6 +52,10 @@ passport.serializeUser(function(user, cb) {
 passport.deserializeUser(function(obj, cb) {
   cb(null, obj);
 });
+
+// User.prototype.validPassword = function(password) {
+//   return bcrypt.compareSync(password, this.password);
+// };
 
 // Exporting our configured passport
 module.exports = passport;
