@@ -1,5 +1,6 @@
 import React, { useState } from "react";
 import { DisabledInput, Input, InputPassword, FormBtn } from "../../Form";
+import { Redirect } from "react-router-dom";
 import API from "../../../utils/API";
 import "./style.css";
 
@@ -7,6 +8,7 @@ import "./style.css";
 function RegisterCompany(props) {
 
     const [formObject, setFormObject] = useState({});
+    const [redirect, setRedirect] = useState({ path: null });
 
     function handleInputChange(event) {
         const { name, value } = event.target;
@@ -33,6 +35,7 @@ function RegisterCompany(props) {
             API.registerCompany(company)
             .then( (res) => {
                 console.log("res", res);
+                setRedirect({ path: "/members" });
             });
         }
         // else say the password doesnt match.
@@ -40,6 +43,7 @@ function RegisterCompany(props) {
 
     return (
         <div className={"row " + props.addClasses}>
+            {redirect.path ? <Redirect to={redirect.path} /> : null}
             <form className="col s12">
                 <div className="row">
                     <DisabledInput col="col s6"
