@@ -1,4 +1,7 @@
 import React, { useEffect } from "react";
+import Wrapper from "../components/Wrapper";
+import Contracts from "../components/Contracts";
+import Footer from "../components/Footer";
 import API from "../utils/API";
 
 function Contract() {
@@ -8,7 +11,11 @@ function Contract() {
     }, []);
 
     return (
-        <h2>Contracts</h2>
+        <Wrapper>
+            <OutHeader />
+            <Contracts />
+            <Footer />
+        </Wrapper>
     );
 }
 
