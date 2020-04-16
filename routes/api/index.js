@@ -27,4 +27,7 @@ router.route("/company")
     .get(registerController.queryCompany)
     .post(registerController.saveContract);
 
+router.route("/contract_data")
+    .get(registerController.getContracts);
+
 module.exports = router;

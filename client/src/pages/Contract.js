@@ -14,7 +14,7 @@ function Contract() {
     return (
         <Wrapper>
             <InHeader />
-            {/* <Contracts /> */}
+            <Contracts subtitle="Contracts Portal" />
             <Footer />
         </Wrapper>
     );

@@ -29,7 +29,6 @@ module.exports = {
         })
         .then( (data) => res.json(data))
         .catch( (err) => res.status(422).json(err));
-        // res.json(dbModel)
     },
     createUser: function(req, res) {
         const { companyName } = req.body;
@@ -58,9 +57,13 @@ module.exports = {
         .catch( (err) => res.status(422).json(err));
     },
     saveContract: function(req, res) {
-        console.log(req.body);
         db.Contract.create(req.body)
         .then(data => res.json(data))
+        .catch( (err) => res.status(422).json(err));
+    },
+    getContracts: function(req, res) {
+        db.Contract.find()
+        .then( (data) => res.json(data))
         .catch( (err) => res.status(422).json(err));
     }
 };

@@ -18,5 +18,8 @@ export default {
     },
     saveContract: function(data) {
         return axios.post("/api/company", data);
+    },
+    getContracts: function() {
+        return axios.get("/api/contract_data");
     }
 }
