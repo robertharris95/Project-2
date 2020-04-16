@@ -52,9 +52,15 @@ module.exports = {
         .then( (data) => res.json(data))
         .catch( (err) => res.status(422).json(err));
     },
-    queyCompany: function(req, res) {
+    queryCompany: function(req, res) {
         db.Company.find({ companyName: {$regex: req.query.name} })
         .then( (data) => res.json(data))
+        .catch( (err) => res.status(422).json(err));
+    },
+    saveContract: function(req, res) {
+        console.log(req.body);
+        db.Contract.create(req.body)
+        .then(data => res.json(data))
         .catch( (err) => res.status(422).json(err));
     }
 };

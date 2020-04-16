@@ -64,7 +64,7 @@ function RegisterCompany(props) {
                     <Input onChange={handleInputChange}
                         name="address" 
                         col="col s6" 
-                        inputId="addres"
+                        inputId="address"
                         label="Address"
                     />
                 </div>

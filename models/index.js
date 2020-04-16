@@ -1,4 +1,5 @@
 module.exports = {
     Company: require("./company"),
-    User: require("./user")
+    User: require("./user"),
+    Contract: require("./contract")
 };

@@ -1,7 +1,7 @@
 import React, { useEffect } from "react";
 import InHeader from "../components/InHeader";
 import Wrapper from "../components/Wrapper";
-import Contracts from "../components/Contracts";
+import ContractForm from "../components/ContractForm"
 import Footer from "../components/Footer";
 import API from "../utils/API";
 
@@ -14,7 +14,7 @@ function Contract() {
     return (
         <Wrapper>
             <InHeader />
-            {/* <Contracts /> */}
+            <ContractForm />
             <Footer />
         </Wrapper>
     );

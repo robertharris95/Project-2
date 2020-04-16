@@ -15,6 +15,7 @@ router.route("/user_data")
             res.json({});
         } else {
             res.json({
+                _id: req.user._id,
                 email: req.user.email,
                 companyId: req.user.companyId,
                 admin: req.user.admin
@@ -23,6 +24,7 @@ router.route("/user_data")
     });
 
 router.route("/company")
-    .get(registerController.queyCompany)
+    .get(registerController.queryCompany)
+    .post(registerController.saveContract);
 
 module.exports = router;

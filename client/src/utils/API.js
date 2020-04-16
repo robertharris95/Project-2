@@ -15,5 +15,8 @@ export default {
     },
     getCompanyList: function(data) {
         return axios.get("/api/company?name=" + data);
+    },
+    saveContract: function(data) {
+        return axios.post("/api/company", data);
     }
 }
