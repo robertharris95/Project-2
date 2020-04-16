@@ -3,7 +3,6 @@ import Wrapper from "../Wrapper";
 import RegisterCompany from "../RegisterForm/Company";
 import RegisterUser from "../RegisterForm/User";
 import "./style.css";
-import { Redirect } from "react-router-dom";
 
 function RegisterForm() {
 

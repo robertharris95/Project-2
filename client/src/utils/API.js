@@ -9,5 +9,11 @@ export default {
     },
     signIn: function(data) {
         return axios.post("/api/login", data);
+    },
+    getUser: function() {
+        return axios.get("/api/user_data");
+    },
+    getCompanyList: function(data) {
+        return axios.get("/api/company?name=" + data);
     }
 }

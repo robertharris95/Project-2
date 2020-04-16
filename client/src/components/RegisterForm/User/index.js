@@ -1,6 +1,7 @@
 import React, { useState } from "react";
 import { DisabledInput, Input, InputPassword, FormBtn } from "../../Form";
 import { Redirect } from "react-router-dom";
+// import SearchCard from "../../SearchCard";
 import API from "../../../utils/API";
 import "./style.css";
 
@@ -9,11 +10,14 @@ function RegisterUser(props) {
 
     const [formObject, setFormObject] = useState({});
     const [redirect, setRedirect] = useState({ path: null });
+    const [company, setCompany] = useState({ name: "" });
 
     function handleInputChange(event) {
         const { name, value } = event.target;
 
         setFormObject({ ...formObject, [name]: value });
+
+        setCompany({ name: event.target.value });
     }
 
     function handleFormSubmit(event) {
@@ -35,6 +39,9 @@ function RegisterUser(props) {
             .then( (res) => {
                 console.log("res", res);
                 setRedirect({ path: "/members" });
+            })
+            .catch( (err) => {
+                console.log(err);
             });
         }
         // else say the password doesnt match.
@@ -71,6 +78,7 @@ function RegisterUser(props) {
                         inputId="user_comp"
                         label="Company"
                     />
+                    {/* <SearchCard company={company.name} /> */}
                 </div>
                 <div className="row">
                     <Input onChange={handleInputChange}

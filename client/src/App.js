@@ -6,11 +6,11 @@ import Contract from "./pages/Contract";
 
 function App() {
   return (
-    <Router>
-      <Route exact path={"/"} component={Login} />
-      <Route exact path={"/register"} component={Register} />
-      <Route exact path={"/members"} component={Contract} />
-    </Router>
+      <Router>
+          <Route exact path={"/"} component={Login} />
+          <Route exact path={"/register"} component={Register} />
+          <Route exact path={"/members"} component={Contract} />
+      </Router>
   );
 }
 

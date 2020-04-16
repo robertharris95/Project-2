@@ -27,7 +27,7 @@ module.exports = {
                 companyId: _id
             });
         })
-        .then( (res) => res.redirect(307, "/api/login"))
+        .then( (data) => res.json(data))
         .catch( (err) => res.status(422).json(err));
         // res.json(dbModel)
     },
@@ -49,7 +49,12 @@ module.exports = {
                 companyId: _id
             });
         })
-        .then( (res) => res.redirect(307, "/api/login"))
+        .then( (data) => res.json(data))
+        .catch( (err) => res.status(422).json(err));
+    },
+    queyCompany: function(req, res) {
+        db.Company.find({ companyName: {$regex: req.query.name} })
+        .then( (data) => res.json(data))
         .catch( (err) => res.status(422).json(err));
     }
 };

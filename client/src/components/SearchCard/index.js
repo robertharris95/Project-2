@@ -1,58 +1,46 @@
 import React, { useState } from "react";
-import ElemContainer from "../ElemContainer";
-import BookCard from "../BookCard";
-import { Input, FormBtn } from "../Form";
+import ListCard from "../ListCard";
 import API from "../../utils/API";
-import "./style.css";
+// import "./style.css";
 
 // props: subtitle.
 
 function SearchCard(props) {
 
-    const [books, setBooks] = useState([]);
+    const [company, setCompany] = useState([]);
 
-    const [formObject, setFormObject] = useState({});
+    let compArr = [];
 
-    function handleInputChange(event) {
-        const { value } = event.target;
-        setFormObject({ book: value })
-    }
+    API.getCompanyList(props.company).then(data => {
+        console.log(data.data);
+        data.data.forEach( (el) => {
+            compArr.push(el);
+        });
+    });
 
-    function handleFormSubmit(event) {
-        event.preventDefault();
-        API.searchBook(formObject.book)
-        .then( (books) => console.log(books))
-    }
+    console.log(compArr);
+
+    // function handleFormSubmit(event) {
+    //     event.preventDefault();
+    //     API.searchBook(formObject.book)
+    //     .then( (books) => console.log(books))
+    // }
 
     return (
-        <ElemContainer addClasses="elemContainer col s12">
-            <h4>{props.subtitle}</h4>
-            <form>
-                <Input onChange={handleInputChange}
-                    name="book"
-                    placeholder="Book Title"
-                />
-                <FormBtn disabled={!formObject.book}
-                    onClick={handleFormSubmit}
-                >
-                    Search
-                </FormBtn>
-            </form>
-            {books.length ? (
-                <div>
-                    {books.map( (book) => {
+        <>
+            {compArr.length ? (
+                <ul className={props.addClasses}>
+                    {compArr.map( (comp) => {
                         return (
-                            <BookCard key={book._id}
-                            apiHref={"/books/" + book._id}
-                            bookName={book.title}
-                            link={book.author}
-                            info={book.synopsis}
+                            <ListCard key={comp._id}
+                            apiHref={"/company/" + comp._id}
+                            companyName={comp.companyName}
                             />
                         );
                     })}
-                </div>
-            ) : (<h3>No Results.</h3>)}
-        </ElemContainer>
+                </ul>
+            ) : null}
+        </>
     );
 }
 

@@ -36,6 +36,9 @@ function RegisterCompany(props) {
             .then( (res) => {
                 console.log("res", res);
                 setRedirect({ path: "/members" });
+            })
+            .catch( (err) => {
+                console.log(err);
             });
         }
         // else say the password doesnt match.
