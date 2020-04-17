@@ -21,5 +21,11 @@ export default {
     },
     getContracts: function() {
         return axios.get("/api/contract_data");
-    }
+    },
+    getMyUsers: function(data) {
+        return axios.get("/api/my_users?id=" + data);
+    },
+    getMyContracts: function(data) {
+        return axios.get("/api/my_contracts?id=" + data);
+    } 
 }

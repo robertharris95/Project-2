@@ -24,7 +24,7 @@ function LoginForm() {
 
         const { email, password } = formObject;
         let user = { 
-            email: email,
+            email: email.toLowerCase(),
             password: password
         };
 

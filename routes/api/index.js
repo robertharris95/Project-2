@@ -2,7 +2,6 @@ const router = require("express").Router();
 const registerRoutes = require("./register");
 const logInRoutes = require("./login");
 const registerController = require("../../controllers/registerController");
-// const passport = require("../../config/passport");
 
 router.use("/register", registerRoutes);
 
@@ -15,6 +14,7 @@ router.route("/user_data")
         } else {
             res.json({
                 _id: req.user._id,
+                name: req.user.firstName + " " + req.user.lastName,
                 email: req.user.email,
                 companyId: req.user.companyId,
                 admin: req.user.admin,
@@ -29,5 +29,11 @@ router.route("/company")
 
 router.route("/contract_data")
     .get(registerController.getContracts);
+
+router.route("/my_users")
+    .get(registerController.getCompanyUsers);
+
+router.route("/my_contracts")
+    .get(registerController.getCompanyContracts);
 
 module.exports = router;

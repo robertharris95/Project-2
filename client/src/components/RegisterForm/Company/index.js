@@ -21,14 +21,14 @@ function RegisterCompany(props) {
         const { companyName, address, sector, firstName, lastName, position, email, password, verifyPassword } = formObject;
         if (password === verifyPassword) {
             company = {
-                companyName: companyName,
+                companyName: companyName.toUpperCase(),
                 address: address,
                 sector: sector,
                 user: {
                     firstName: firstName,
                     lastName: lastName,
                     position: position,
-                    email: email,
+                    email: email.toLowerCase(),
                     password: password
                 }  
             }

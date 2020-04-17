@@ -7,6 +7,7 @@ const contractSchema = new Schema({
     description: { type: String, required: true },
     rate: { type: String, required: true },
     userId: { type: String, required: true },
+    userName: { type: String, required: true },
     companyId: { type: String, required: true },
     companyName: { type: String, required: true }
 });

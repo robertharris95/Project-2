@@ -26,12 +26,12 @@ function RegisterUser(props) {
         const { companyName, firstName, lastName, position, email, password, verifyPassword } = formObject;
         if (password === verifyPassword) {
             newUser = {
-                companyName: companyName,
+                companyName: companyName.toUpperCase(),     // delete to upper and replace with query functionality.
                 user: {
                     firstName: firstName,
                     lastName: lastName,
                     position: position,
-                    email: email,
+                    email: email.toLowerCase(),
                     password: password
                 }  
             }

@@ -54,7 +54,7 @@ module.exports = {
         .catch( (err) => res.status(422).json(err));
     },
     queryCompany: function(req, res) {
-        db.Company.find({ companyName: {$regex: req.query.name} })
+        db.Company.find({ companyName: { $regex: "/" + req.query.name + "/i" } })
         .then( (data) => res.json(data))
         .catch( (err) => res.status(422).json(err));
     },
@@ -65,6 +65,16 @@ module.exports = {
     },
     getContracts: function(req, res) {
         db.Contract.find()
+        .then( (data) => res.json(data))
+        .catch( (err) => res.status(422).json(err));
+    },
+    getCompanyUsers: function(req, res) {
+        db.User.find({ companyId: req.query.id })
+        .then( (data) => res.json(data))
+        .catch( (err) => res.status(422).json(err));
+    },
+    getCompanyContracts: function(req, res) {
+        db.Contract.find({ companyId: req.query.id })
         .then( (data) => res.json(data))
         .catch( (err) => res.status(422).json(err));
     }

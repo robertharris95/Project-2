@@ -1,0 +1,23 @@
+#btns {
+    padding: 0px;
+    margin: 0px;
+}
+#settings {
+    background-color: gray !important;
+    text-underline-position: below;
+}
+#btns li {
+    text-align: center;
+    background-color: rgb(197, 197, 197);
+    padding: 0px;
+    border-width: thin;
+    border-style: solid;
+    border-color: gray;
+}
+#all-sett {
+    position: relative;
+    top: 35px;
+    border-width: thin;
+    border-style: solid;
+    border-color: gray;
+}

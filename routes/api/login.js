@@ -1,6 +1,5 @@
 const router = require("express").Router();
 const passport = require("../../config/passport");
-// const logInController = require("../../controllers/")
 
 router.route("/")
     .post(
@@ -9,10 +8,3 @@ router.route("/")
     });
 
 module.exports = router;
-
-// (req, res) => {
-//     console.log("logIn");
-//     // req.session.username = req.body.email;
-//     // res.end();
-    
-// }
