@@ -12,7 +12,7 @@ function Contract() {
     }, []);
 
     return (
-        <Wrapper>
+        <Wrapper addClasses="row">
             <InHeader />
             <Contracts subtitle="Contracts Portal" />
             <Footer />

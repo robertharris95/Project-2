@@ -6,13 +6,16 @@ function ContractCard(props) {
     return (
         <div id="contract-card" className="row">
             <div className="row">
-                <p className="col s5">Product/Service: <span>{props.contractName}</span></p>
-                <p className="col s5">Category: <span>{props.category}</span></p>
-                <p className="col s2 pull-s1"><a href={props.link}>Contract</a></p>
+                <p className="col s6">Product/Service: <span>{props.contractName}</span></p>
+                <p className="col s6 push-m3 push-l4">Category: <span>{props.category}</span></p>
+            </div>
+            <div className="row">
+                <p className="col s8">Estimate: ${props.rate}/Unit</p>
+                <p className="col s4 push-m1 push-l2"><a href={props.link}>Contract</a></p>
             </div>
             <div className="row">
                 <p className="col s9">Description: <span>{props.description}</span></p>
-                <p className="col s3">Test{props.company}</p>
+                <p className="col s3 push-l1">{props.company}</p>
             </div>
         </div>
     );

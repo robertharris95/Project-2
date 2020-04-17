@@ -7,7 +7,7 @@ import "./Login.css";
 
 function Login() {
     return (
-        <Wrapper>
+        <Wrapper addClasses="row">
             <OutHeader />
             <LoginForm />
             <Footer />

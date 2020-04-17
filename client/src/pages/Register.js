@@ -7,7 +7,7 @@ import "./Register.css";
 
 function Login() {
     return (
-        <Wrapper>
+        <Wrapper addClasses="row">
             <OutHeader />
             <RegisterForm />
             <Footer />

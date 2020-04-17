@@ -12,7 +12,7 @@ function Contract() {
     }, []);
 
     return (
-        <Wrapper>
+        <Wrapper addClasses="row">
             <InHeader />
             <ContractForm />
             <Footer />

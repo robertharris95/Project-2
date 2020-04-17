@@ -31,7 +31,6 @@ function LoginForm() {
         API.signIn(user)
         .then( (res) => {
             setRedirect({ path: "/members" });
-            console.log("res", res); //getting this atm.
         })
         .catch( (err) => console.log(err));
         // else say the password doesnt match.

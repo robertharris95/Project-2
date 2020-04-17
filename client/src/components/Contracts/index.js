@@ -30,8 +30,10 @@ function Contracts(props) {
                             <ContractCard key={contract._id}
                             apiHref={contract._id}
                             contractName={contract.name}
+                            rate={contract.rate}
                             category={contract.category}
                             description={contract.description}
+                            company={contract.companyName}
                             />
                         );
                     })}

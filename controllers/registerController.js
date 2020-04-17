@@ -24,7 +24,8 @@ module.exports = {
                 email: email,
                 password: hashedPass,
                 admin: true,
-                companyId: _id
+                companyId: _id,
+                companyName: companyName
             });
         })
         .then( (data) => res.json(data))
@@ -45,7 +46,8 @@ module.exports = {
                 email: email,
                 password: hashedPass,
                 admin: false,
-                companyId: _id
+                companyId: _id,
+                companyName: companyName
             });
         })
         .then( (data) => res.json(data))

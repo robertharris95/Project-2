@@ -10,7 +10,6 @@ router.use("/login", logInRoutes);
 
 router.route("/user_data")
     .get((req, res) => {
-        // console.log("@@req.user (get route)", req.user); contains all the loging in user data.
         if (!req.user) {
             res.json({});
         } else {
@@ -18,7 +17,8 @@ router.route("/user_data")
                 _id: req.user._id,
                 email: req.user.email,
                 companyId: req.user.companyId,
-                admin: req.user.admin
+                admin: req.user.admin,
+                companyName: req.user.companyName
             });
         }
     });

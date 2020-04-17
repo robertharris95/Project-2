@@ -37,7 +37,6 @@ function RegisterUser(props) {
             }
             API.registerUser(newUser)
             .then( (res) => {
-                console.log("res", res);
                 setRedirect({ path: "/members" });
             })
             .catch( (err) => {

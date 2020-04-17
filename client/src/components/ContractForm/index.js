@@ -10,7 +10,8 @@ function ContractForm(props) {
     const [redirect, setRedirect] = useState({ path: null });
     const [userData, setUserData] = useState({
         userId: null,
-        companyId: null
+        companyId: null,
+        companyName: null
     });
 
     function handleInputChange(event) {
@@ -21,7 +22,8 @@ function ContractForm(props) {
     useEffect( () => {
         API.getUser().then( ({data}) => setUserData({
             userId: data._id,
-            companyId: data.companyId
+            companyId: data.companyId,
+            companyName: data.companyName
         }));
     }, [])
 
@@ -36,7 +38,8 @@ function ContractForm(props) {
             description: description,
             rate: rate,
             userId: userData.userId,
-            companyId: userData.companyId
+            companyId: userData.companyId,
+            companyName: userData.companyName
         }
 
         API.saveContract(contract)

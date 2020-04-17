@@ -34,7 +34,6 @@ function RegisterCompany(props) {
             }
             API.registerCompany(company)
             .then( (res) => {
-                console.log("res", res);
                 setRedirect({ path: "/members" });
             })
             .catch( (err) => {

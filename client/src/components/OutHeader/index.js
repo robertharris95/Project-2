@@ -9,13 +9,11 @@ function OutHeader() {
     
     return (
         <nav id="navbar" className="header row z-depth-4">
-            <div className="nav-wrapper">
-                <img id="logo" src={logo} />
-                <ul id="nav-mobile" className="right">
-                    <li><Link id="login_nav" to={"/"} className = { location.pathname === "/" ? "nav-link active" : "nav-link" }>Log In</Link></li>
-                    <li><Link id="login_nav" to={"/register"} className = { location.pathname === "/register" ? "nav-link active" : "nav-link" }>Register</Link></li>
-                </ul>
-            </div>
+            <img id="logo" className="col s4 l2 push-l1" src={logo} />
+            <ul id="links" className="col s8 push-s2 push-l8">
+                <li><Link id="login_nav" to={"/"} className = { location.pathname === "/" ? "nav-link active" : "nav-link" }>Log In</Link></li>
+                <li><Link id="login_nav" to={"/register"} className = { location.pathname === "/register" ? "nav-link active" : "nav-link" }>Register</Link></li>
+            </ul>
         </nav>
     );
 }
