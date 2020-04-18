@@ -60,7 +60,7 @@ module.exports = {
     },
     saveContract: function(req, res) {
         db.Contract.create(req.body)
-        .then(data => res.json(data))
+        .then( (data) => res.json(data))
         .catch( (err) => res.status(422).json(err));
     },
     getContracts: function(req, res) {
@@ -75,6 +75,18 @@ module.exports = {
     },
     getCompanyContracts: function(req, res) {
         db.Contract.find({ companyId: req.query.id })
+        .then( (data) => res.json(data))
+        .catch( (err) => res.status(422).json(err));
+    },
+    removeUser: function(req, res) {
+        db.User.findById({ _id: req.params.id })
+        .then( (data) => data.remove())
+        .then( (data) => res.json(data))
+        .catch( (err) => res.status(422).json(err));
+    },
+    removeContract: function(req, res) {
+        db.Contract.findById({ _id: req.params.id })
+        .then( (data) => data.remove())
         .then( (data) => res.json(data))
         .catch( (err) => res.status(422).json(err));
     }

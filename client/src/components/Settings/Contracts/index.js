@@ -1,5 +1,6 @@
 import React, { useEffect, useState } from "react";
 import API from "../../../utils/API";
+import { ContractRow } from "../../TableRow";
 import "./style.css";
 
 function Contracts(props) {
@@ -7,15 +8,16 @@ function Contracts(props) {
     const [contractList, setContractList] = useState([]);
 
     useEffect( () => {
+        loadMyContracts();
+    }, []);
+
+    function loadMyContracts() {
         API.getUser()
         .then(({data}) => {
             return API.getMyContracts(data.companyId);
-        }).then(({data}) => setContractList(data));
-    }, []);
-
-    // function handleDelete(event) {
-
-    // }
+        }).then(({data}) => setContractList(data))
+        .catch(err => console.log(err));
+    }
 
     return (
         <table className={props.addClasses}>
@@ -33,12 +35,13 @@ function Contracts(props) {
                     <>
                         {contractList.map( (contract) => {
                             return (
-                                <tr key={contract._id}>
-                                    <td>{contract.name}</td>
-                                    <td>{contract.userName}</td>
-                                    <td>{contract.rate}</td>
-                                    <td><button><i class="fas fa-file-excel"></i></button></td>
-                                </tr>
+                                <ContractRow key={contract._id}
+                                apiHref={contract._id}
+                                name={contract.name}
+                                userName={contract.userName}
+                                rate={contract.rate}
+                                loadMyContracts={loadMyContracts}
+                                />
                             );
                         })}
                     </>

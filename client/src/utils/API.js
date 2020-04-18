@@ -25,7 +25,13 @@ export default {
     getMyUsers: function(data) {
         return axios.get("/api/my_users?id=" + data);
     },
+    removeUser: function(data) {
+        return axios.delete("/api/my_users/" + data);
+    }, 
     getMyContracts: function(data) {
         return axios.get("/api/my_contracts?id=" + data);
-    } 
+    },
+    removeContract: function(data) {
+        return axios.delete("/api/my_contracts/" + data);
+    }
 }

@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from "react";
 import API from "../../../utils/API";
+import { UserRow } from "../../TableRow";
 import "./style.css";
 
 function Users(props) {
@@ -7,11 +8,16 @@ function Users(props) {
     const [userList, setUserList] = useState([]);
 
     useEffect( () => {
+        loadMyUsers();
+    }, [])
+
+    function loadMyUsers() {
         API.getUser()
         .then(({data}) => {
             return API.getMyUsers(data.companyId);
-        }).then(({data}) => setUserList(data));
-    }, [])
+        }).then(({data}) => setUserList(data))
+        .catch(err => console.log(err));
+    }
 
     return (
         <table  id={props.addIds} className={props.addClasses}>
@@ -29,12 +35,13 @@ function Users(props) {
                     <>
                         {userList.map( (user) => {
                             return (
-                                <tr key={user._id}>
-                                    <td>{user.firstName + " " + user.lastName}</td>
-                                    <td>{user.email}</td>
-                                    <td>{user.position}</td>
-                                    <td><button><i class="fas fa-user-times"></i></button></td>
-                                </tr>
+                                <UserRow key={user._id}
+                                    apiHref={user._id}
+                                    name={user.firstName + " " + user.lastName}
+                                    email={user.email}
+                                    position={user.position}
+                                    loadMyUsers={loadMyUsers}
+                                />
                             );
                         })}
                     </>

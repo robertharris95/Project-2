@@ -1,11 +1,18 @@
 const router = require("express").Router();
 const registerRoutes = require("./register");
 const logInRoutes = require("./login");
+const contractRoutes = require("./contract");
+const userRoutes = require("./user");
 const registerController = require("../../controllers/registerController");
 
 router.use("/register", registerRoutes);
 
 router.use("/login", logInRoutes);
+
+// admin setting routes.
+router.use("/my_contracts", contractRoutes);
+
+router.use("/my_users", userRoutes);
 
 router.route("/user_data")
     .get((req, res) => {
@@ -29,11 +36,5 @@ router.route("/company")
 
 router.route("/contract_data")
     .get(registerController.getContracts);
-
-router.route("/my_users")
-    .get(registerController.getCompanyUsers);
-
-router.route("/my_contracts")
-    .get(registerController.getCompanyContracts);
 
 module.exports = router;
