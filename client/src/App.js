@@ -1,5 +1,5 @@
 import React from 'react';
-import { BrowserRouter as Router, Route} from "react-router-dom";
+import { BrowserRouter as Router, Route } from "react-router-dom";
 import Login from "./pages/Login";
 import Register from "./pages/Register";
 import Contract from "./pages/Contract";
@@ -7,6 +7,7 @@ import Create from "./pages/Create";
 import Settings from "./pages/Settings";
 
 function App() {
+
   return (
       <Router>
           <Route exact path={"/"} component={Login} />

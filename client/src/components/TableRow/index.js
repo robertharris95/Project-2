@@ -27,7 +27,7 @@ export function UserRow(props) {
     function handleDelete(event) {
         event.preventDefault();
 
-        API.removeContract(props.apiHref)
+        API.removeUser(props.apiHref)
         .then( () => {
             props.loadMyUsers();
         });

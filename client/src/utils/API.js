@@ -33,5 +33,8 @@ export default {
     },
     removeContract: function(data) {
         return axios.delete("/api/my_contracts/" + data);
+    },
+    logOut: function() {
+        return axios.get("/logout");
     }
 }

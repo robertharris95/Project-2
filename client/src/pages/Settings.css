@@ -3,21 +3,31 @@
     margin: 0px;
 }
 #settings {
-    background-color: gray !important;
     text-underline-position: below;
+    height: 5vh;
+    font-size: 20px;
+    border-radius: 24px;
 }
 #btns li {
     text-align: center;
-    background-color: rgb(197, 197, 197);
     padding: 0px;
     border-width: thin;
     border-style: solid;
-    border-color: gray;
 }
 #all-sett {
     position: relative;
     top: 35px;
     border-width: thin;
     border-style: solid;
-    border-color: gray;
+}
+table {
+    width: 100vw;
+    margin: 5vh 0vw;
+}
+table th {
+    width: 25vw;
+    text-align: center;
+}
+table td {
+    text-align: center;
 }

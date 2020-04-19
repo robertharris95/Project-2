@@ -34,8 +34,8 @@ function Settings() {
                 <div className="row">
                     <div className="col s12">
                         <ul id="btns" className="row">
-                            <button id="user-sett settings" onClick={handleUserBtn} className="waves-effect waves-light col s6">Users</button>
-                            <button id="cont-sett settings" onClick={handleCompBtn} className="waves-effect waves-light col s6">Contracts</button>
+                            <button id="settings" onClick={handleUserBtn} className="waves-effect waves-light col s6">Users</button>
+                            <button id="settings" onClick={handleCompBtn} className="waves-effect waves-light col s6">Contracts</button>
                         </ul>
                     </div>
                 </div>
